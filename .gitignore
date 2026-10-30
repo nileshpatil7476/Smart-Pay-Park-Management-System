@@ -1,6 +1,3 @@
-# Build files
-bin/
-obj/
 
 # Visual Studio
 .vs/
@@ -10,7 +7,11 @@ obj/
 # Visual Studio Code
 .vscode/
 
-# User secrets and environment files
+# Build output
+bin/
+obj/
+
+# Development configuration and secrets
 appsettings.Development.json
 .env
 .env.*
@@ -18,8 +19,5 @@ appsettings.Development.json
 # Logs
 *.log
 
-# NuGet
+# NuGet packages
 *.nupkg
-
-# Visual Studio
-.vs/
