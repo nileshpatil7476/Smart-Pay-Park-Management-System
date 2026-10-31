@@ -1,0 +1,11 @@
+F:\workspace\Smart_Parking_System\SmartPayPark.Domain\bin\Debug\net9.0\SmartPayPark.Domain.deps.json
+F:\workspace\Smart_Parking_System\SmartPayPark.Domain\bin\Debug\net9.0\SmartPayPark.Domain.dll
+F:\workspace\Smart_Parking_System\SmartPayPark.Domain\bin\Debug\net9.0\SmartPayPark.Domain.pdb
+F:\workspace\Smart_Parking_System\SmartPayPark.Domain\obj\Debug\net9.0\SmartPayPark.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\workspace\Smart_Parking_System\SmartPayPark.Domain\obj\Debug\net9.0\SmartPayPark.Domain.AssemblyInfoInputs.cache
+F:\workspace\Smart_Parking_System\SmartPayPark.Domain\obj\Debug\net9.0\SmartPayPark.Domain.AssemblyInfo.cs
+F:\workspace\Smart_Parking_System\SmartPayPark.Domain\obj\Debug\net9.0\SmartPayPark.Domain.csproj.CoreCompileInputs.cache
+F:\workspace\Smart_Parking_System\SmartPayPark.Domain\obj\Debug\net9.0\SmartPayPark.Domain.dll
+F:\workspace\Smart_Parking_System\SmartPayPark.Domain\obj\Debug\net9.0\refint\SmartPayPark.Domain.dll
+F:\workspace\Smart_Parking_System\SmartPayPark.Domain\obj\Debug\net9.0\SmartPayPark.Domain.pdb
+F:\workspace\Smart_Parking_System\SmartPayPark.Domain\obj\Debug\net9.0\ref\SmartPayPark.Domain.dll

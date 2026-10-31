@@ -1,0 +1,7 @@
+F:\workspace\Smart_Parking_System\SmartPayPark.Tests\bin\Debug\net9.0\.msCoverageSourceRootsMapping_SmartPayPark.Tests
+F:\workspace\Smart_Parking_System\SmartPayPark.Tests\bin\Debug\net9.0\CoverletSourceRootsMapping_SmartPayPark.Tests
+F:\workspace\Smart_Parking_System\SmartPayPark.Tests\obj\Debug\net9.0\SmartPayPark.Tests.csproj.AssemblyReference.cache
+F:\workspace\Smart_Parking_System\SmartPayPark.Tests\obj\Debug\net9.0\SmartPayPark.Tests.GeneratedMSBuildEditorConfig.editorconfig
+F:\workspace\Smart_Parking_System\SmartPayPark.Tests\obj\Debug\net9.0\SmartPayPark.Tests.AssemblyInfoInputs.cache
+F:\workspace\Smart_Parking_System\SmartPayPark.Tests\obj\Debug\net9.0\SmartPayPark.Tests.AssemblyInfo.cs
+F:\workspace\Smart_Parking_System\SmartPayPark.Tests\obj\Debug\net9.0\SmartPayPark.Tests.csproj.CoreCompileInputs.cache

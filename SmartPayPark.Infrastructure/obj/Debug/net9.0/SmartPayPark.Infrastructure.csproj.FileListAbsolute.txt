@@ -1,0 +1,17 @@
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\obj\Debug\net9.0\SmartPayPark.Infrastructure.csproj.AssemblyReference.cache
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\obj\Debug\net9.0\SmartPayPark.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\obj\Debug\net9.0\SmartPayPark.Infrastructure.AssemblyInfoInputs.cache
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\obj\Debug\net9.0\SmartPayPark.Infrastructure.AssemblyInfo.cs
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\obj\Debug\net9.0\SmartPayPark.Infrastructure.csproj.CoreCompileInputs.cache
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\bin\Debug\net9.0\SmartPayPark.Infrastructure.deps.json
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\bin\Debug\net9.0\SmartPayPark.Infrastructure.dll
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\bin\Debug\net9.0\SmartPayPark.Infrastructure.pdb
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\bin\Debug\net9.0\SmartPayPark.Application.dll
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\bin\Debug\net9.0\SmartPayPark.Domain.dll
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\bin\Debug\net9.0\SmartPayPark.Application.pdb
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\bin\Debug\net9.0\SmartPayPark.Domain.pdb
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\obj\Debug\net9.0\SmartPay.47A1880C.Up2Date
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\obj\Debug\net9.0\SmartPayPark.Infrastructure.dll
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\obj\Debug\net9.0\refint\SmartPayPark.Infrastructure.dll
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\obj\Debug\net9.0\SmartPayPark.Infrastructure.pdb
+F:\workspace\Smart_Parking_System\SmartPayPark.Infrastructure\obj\Debug\net9.0\ref\SmartPayPark.Infrastructure.dll

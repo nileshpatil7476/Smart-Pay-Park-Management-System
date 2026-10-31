@@ -1,0 +1,23 @@
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Visual Studio Code
+.vscode/
+
+# Build output
+bin/
+obj/
+
+# Development configuration and secrets
+appsettings.Development.json
+.env
+.env.*
+
+# Logs
+*.log
+
+# NuGet packages
+*.nupkg

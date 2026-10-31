@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>6fff50e3-1950-4389-9778-55fe7fa5a8ea</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include=".DTOs\OperatorDocument\OperatorDocumentResponse.cs" />
+    <Compile Include=".DTOs\OperatorDocument\ReviewOperatorDocumentRequest.cs" />
+    <Compile Include=".DTOs\OperatorDocument\UploadOperatorDocumentRequest.cs" />
+    <Compile Include=".DTOs\OperatorUser\InviteOperatorUserRequest.cs" />
+    <Compile Include=".DTOs\OperatorUser\OperatorUserResponse.cs" />
+    <Compile Include=".DTOs\OperatorUser\UpdateOperatorUserRequest.cs" />
+    <Compile Include=".DTOs\Operator\CreateOperatorRequest.cs" />
+    <Compile Include=".DTOs\Operator\OperatorProfileResponse.cs" />
+    <Compile Include=".DTOs\Operator\OperatorResponse.cs" />
+    <Compile Include=".DTOs\Operator\OperatorReviewRequest.cs" />
+    <Compile Include=".DTOs\User\AuthResponse.cs" />
+    <Compile Include=".DTOs\User\LoginRequest.cs" />
+    <Compile Include=".DTOs\User\RegisterRequest.cs" />
+    <Compile Include=".DTOs\User\UserProfileResponse.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="9.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Middleware\" />
+    <Folder Include="Authorization\" />
+    <Folder Include="Filters\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SmartPayPark.Application\SmartPayPark.Application.csproj" />
+    <ProjectReference Include="..\SmartPayPark.Infrastructure\SmartPayPark.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
