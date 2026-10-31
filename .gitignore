@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/ServiceCollectionExtensions.cs
+*.docx
+/SmartPayPark.Application/obj/Debug/net9.0/SmartPayPark.Application.AssemblyInfo.cs
+/SmartPayPark.Application/obj/Debug/net9.0/SmartPayPark.Application.AssemblyInfoInputs.cache
