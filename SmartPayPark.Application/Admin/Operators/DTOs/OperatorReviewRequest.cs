@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SmartPayPark.Application.Admin.Operators;
+namespace SmartPayPark.Application.Admin.Operators.DTOs;
 
 public class OperatorReviewRequest
 {

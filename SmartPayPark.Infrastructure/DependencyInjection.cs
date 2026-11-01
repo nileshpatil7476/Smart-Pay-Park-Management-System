@@ -1,13 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SmartPayPark.Domain.Interfaces.Repositories;
-using SmartPayPark.Domain.Entities;
 using SmartPayPark.Api.Services;
-using SmartPayPark.Application.Authentication.Interfaces.Services;
-using SmartPayPark.Infrastructure.Persistence.Repositories;
-using SmartPayPark.Infrastructure.Persistence;
+using SmartPayPark.Application.Admin.Documents.Interfaces.Repositories;
+using SmartPayPark.Application.Admin.Operators.Interfaces;
 using SmartPayPark.Application.Authentication.Interfaces.Repositories;
+using SmartPayPark.Application.Authentication.Interfaces.Services;
+using SmartPayPark.Application.Common.Interfaces;
+using SmartPayPark.Application.Operators.Interfaces.Repositories;
+using SmartPayPark.Domain.Entities;
+using SmartPayPark.Domain.Interfaces.Repositories;
+using SmartPayPark.Infrastructure.FileStorage;
+using SmartPayPark.Infrastructure.Persistence;
+using SmartPayPark.Infrastructure.Persistence.Repositories;
 
 namespace SmartPayPark.Infrastructure;
 
@@ -27,7 +32,10 @@ public static class DependencyInjection
         // Repositories
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IOperatorRepository, OperatorRepository>();
-        //services.AddScoped<IAdminOperatorRepository, AdminOperatorRepository>();
+        services.AddScoped<IAdminOperatorRepository, AdminOperatorRepository>();
+        services.AddScoped<IAdminDocumentRepository, AdminDocumentRepository>();
+        services.AddScoped<IFileStorageService, LocalFileStorageService>();
+        services.AddScoped<IOperatorDocumentRepository, OperatorDocumentRepository>();
 
         // JWT service
         services.AddScoped<IJwtTokenService, JwtTokenService>();

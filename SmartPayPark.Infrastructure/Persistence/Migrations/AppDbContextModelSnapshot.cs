@@ -17,12 +17,12 @@ namespace SmartPayPark.Infrastructure.Persistence
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.0")
+                .HasAnnotation("ProductVersion", "9.0.22")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SmartPayPark.Api.Models.Operator", b =>
+            modelBuilder.Entity("SmartPayPark.Domain.Entities.Operator", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -78,7 +78,7 @@ namespace SmartPayPark.Infrastructure.Persistence
                     b.ToTable("Operators", (string)null);
                 });
 
-            modelBuilder.Entity("SmartPayPark.Api.Models.OperatorDocument", b =>
+            modelBuilder.Entity("SmartPayPark.Domain.Entities.OperatorDocument", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -94,6 +94,10 @@ namespace SmartPayPark.Infrastructure.Persistence
 
                     b.Property<Guid>("OperatorId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("RejectionReason")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<DateTime?>("ReviewedAtUtc")
                         .HasColumnType("datetime2");
@@ -118,7 +122,7 @@ namespace SmartPayPark.Infrastructure.Persistence
                     b.ToTable("OperatorDocuments", (string)null);
                 });
 
-            modelBuilder.Entity("SmartPayPark.Api.Models.OperatorUser", b =>
+            modelBuilder.Entity("SmartPayPark.Domain.Entities.OperatorUser", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -159,7 +163,7 @@ namespace SmartPayPark.Infrastructure.Persistence
                     b.ToTable("OperatorUsers", (string)null);
                 });
 
-            modelBuilder.Entity("SmartPayPark.Api.Models.Role", b =>
+            modelBuilder.Entity("SmartPayPark.Domain.Entities.User.Role", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -207,7 +211,7 @@ namespace SmartPayPark.Infrastructure.Persistence
                         });
                 });
 
-            modelBuilder.Entity("SmartPayPark.Api.Models.User", b =>
+            modelBuilder.Entity("SmartPayPark.Domain.Entities.User.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -252,7 +256,7 @@ namespace SmartPayPark.Infrastructure.Persistence
                     b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("SmartPayPark.Api.Models.UserRole", b =>
+            modelBuilder.Entity("SmartPayPark.Domain.Entities.User.UserRole", b =>
                 {
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -267,9 +271,9 @@ namespace SmartPayPark.Infrastructure.Persistence
                     b.ToTable("UserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("SmartPayPark.Api.Models.OperatorDocument", b =>
+            modelBuilder.Entity("SmartPayPark.Domain.Entities.OperatorDocument", b =>
                 {
-                    b.HasOne("SmartPayPark.Api.Models.Operator", "Operator")
+                    b.HasOne("SmartPayPark.Domain.Entities.Operator", "Operator")
                         .WithMany("OperatorDocuments")
                         .HasForeignKey("OperatorId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -278,20 +282,20 @@ namespace SmartPayPark.Infrastructure.Persistence
                     b.Navigation("Operator");
                 });
 
-            modelBuilder.Entity("SmartPayPark.Api.Models.OperatorUser", b =>
+            modelBuilder.Entity("SmartPayPark.Domain.Entities.OperatorUser", b =>
                 {
-                    b.HasOne("SmartPayPark.Api.Models.User", "InvitedByUser")
+                    b.HasOne("SmartPayPark.Domain.Entities.User.User", "InvitedByUser")
                         .WithMany("InvitationsSent")
                         .HasForeignKey("InvitedByUserId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SmartPayPark.Api.Models.Operator", "Operator")
+                    b.HasOne("SmartPayPark.Domain.Entities.Operator", "Operator")
                         .WithMany("OperatorUsers")
                         .HasForeignKey("OperatorId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("SmartPayPark.Api.Models.User", "User")
+                    b.HasOne("SmartPayPark.Domain.Entities.User.User", "User")
                         .WithMany("OperatorMemberships")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -304,15 +308,15 @@ namespace SmartPayPark.Infrastructure.Persistence
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SmartPayPark.Api.Models.UserRole", b =>
+            modelBuilder.Entity("SmartPayPark.Domain.Entities.User.UserRole", b =>
                 {
-                    b.HasOne("SmartPayPark.Api.Models.Role", "Role")
+                    b.HasOne("SmartPayPark.Domain.Entities.User.Role", "Role")
                         .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SmartPayPark.Api.Models.User", "User")
+                    b.HasOne("SmartPayPark.Domain.Entities.User.User", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -323,19 +327,19 @@ namespace SmartPayPark.Infrastructure.Persistence
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SmartPayPark.Api.Models.Operator", b =>
+            modelBuilder.Entity("SmartPayPark.Domain.Entities.Operator", b =>
                 {
                     b.Navigation("OperatorDocuments");
 
                     b.Navigation("OperatorUsers");
                 });
 
-            modelBuilder.Entity("SmartPayPark.Api.Models.Role", b =>
+            modelBuilder.Entity("SmartPayPark.Domain.Entities.User.Role", b =>
                 {
                     b.Navigation("UserRoles");
                 });
 
-            modelBuilder.Entity("SmartPayPark.Api.Models.User", b =>
+            modelBuilder.Entity("SmartPayPark.Domain.Entities.User.User", b =>
                 {
                     b.Navigation("InvitationsSent");
 

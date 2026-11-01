@@ -16,6 +16,8 @@ public class OperatorDocument
     public DocumentVerificationStatus VerificationStatus { get; set; }
         = DocumentVerificationStatus.Pending;
 
+    public string? RejectionReason { get; set; } = string.Empty;
+
     public Guid? ReviewedByUserId { get; set; }
 
     public DateTime? ReviewedAtUtc { get; set; }

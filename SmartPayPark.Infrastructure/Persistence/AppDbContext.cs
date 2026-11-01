@@ -185,6 +185,10 @@ public class AppDbContext : DbContext
                 .HasMaxLength(30)
                 .IsRequired();
 
+            entity.Property(x => x.RejectionReason)
+                .HasMaxLength(500)
+                .IsRequired(false);
+
             entity.HasOne(x => x.Operator)
                 .WithMany(x => x.OperatorDocuments)
                 .HasForeignKey(x => x.OperatorId)
