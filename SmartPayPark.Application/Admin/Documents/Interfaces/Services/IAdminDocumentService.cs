@@ -17,5 +17,9 @@ namespace SmartPayPark.Application.Admin.Documents.Interfaces.Services
                 Guid id,
                 ReviewOperatorDocumentRequest request,
                 Guid reviewedByUserId);
+
+        Task<AdminDocumentFileResponse> DownloadDocumentAsync(
+                Guid id,
+                CancellationToken cancellationToken = default);
     }
 }

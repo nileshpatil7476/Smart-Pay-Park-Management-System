@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartPayPark.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e7902dacd8b0a4605ca391976cb390be4eed0c19")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartPayPark.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartPayPark.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SmartPayPark.Application.Admin.Documents.DTOs;
 using SmartPayPark.Application.Admin.Documents.Interfaces;
 using SmartPayPark.Application.Admin.Documents.Interfaces.Services;
+using SmartPayPark.Application.Admin.Documents.Services;
 using System.Security.Claims;
 
 namespace SmartPayPark.Api.Controllers;
@@ -66,6 +67,38 @@ public class AdminDocumentController : ControllerBase
         catch (InvalidOperationException ex)
         {
             return BadRequest(new { Message = ex.Message });
+        }
+    }
+
+    [HttpGet("{id:guid}/file")]
+    public async Task<IActionResult> DownloadDocument(
+    Guid id,
+    CancellationToken cancellationToken)
+    {
+        try
+        {
+            var result = await _service.DownloadDocumentAsync(
+                id,
+                cancellationToken);
+
+            Response.Headers["Content-Disposition"] =
+                $"inline; filename=\"{result.FileName}\"";
+
+            return File(result.FileStream, result.ContentType);
+        }
+        catch (KeyNotFoundException)
+        {
+            return NotFound(new
+            {
+                message = "Document not found."
+            });
+        }
+        catch (FileNotFoundException)
+        {
+            return NotFound(new
+            {
+                message = "The uploaded document file could not be found."
+            });
         }
     }
 }

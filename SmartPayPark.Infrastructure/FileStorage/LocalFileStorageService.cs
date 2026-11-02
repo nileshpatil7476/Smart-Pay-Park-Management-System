@@ -95,4 +95,45 @@ public class LocalFileStorageService : IFileStorageService
 
         return Task.CompletedTask;
     }
+
+    public async Task<Stream?> OpenReadAsync(
+        string storageKey, 
+        CancellationToken cancellationToken = default)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+
+        // check storage key
+        if (string.IsNullOrWhiteSpace(storageKey))
+        {
+            return null;
+        }
+
+        // get file name 
+        string filename = Path.GetFileName(storageKey);
+
+        if(!string.Equals(
+            filename,
+            storageKey,
+            StringComparison.Ordinal)){
+            return null;
+        }
+
+        string filepath = Path.Combine(_storagePath, filename);
+
+        if (!File.Exists(filepath))
+        {
+            return null;
+        }
+
+        Stream stream = new FileStream(
+            filepath,
+            FileMode.Open,
+            FileAccess.Read,
+            FileShare.Read,
+            bufferSize: 81920,
+            useAsync: true
+            );
+
+        return stream;
+    }
 }
