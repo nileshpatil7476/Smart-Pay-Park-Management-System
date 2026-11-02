@@ -1,6 +1,7 @@
 ﻿using SmartPayPark.Application.Admin.Documents.DTOs;
 using SmartPayPark.Application.Admin.Documents.Interfaces.Repositories;
 using SmartPayPark.Application.Admin.Documents.Interfaces.Services;
+using SmartPayPark.Application.Common.Interfaces;
 using SmartPayPark.Domain.Entities;
 using SmartPayPark.Domain.Entities.Enums;
 using System;
@@ -14,10 +15,51 @@ namespace SmartPayPark.Application.Admin.Documents.Services
     public class AdminDocumentService : IAdminDocumentService
     {
         private readonly IAdminDocumentRepository _adminDocumentRepository;
+        private readonly IFileStorageService _fileStorageService;
 
-        public AdminDocumentService(IAdminDocumentRepository adminDocumentRepository)
+        public AdminDocumentService(
+            IAdminDocumentRepository adminDocumentRepository,
+            IFileStorageService fileStorageService)
         {
             _adminDocumentRepository = adminDocumentRepository;
+            _fileStorageService = fileStorageService;
+        }
+
+        public async Task<AdminDocumentFileResponse> DownloadDocumentAsync(
+            Guid id, 
+            CancellationToken cancellationToken = default)
+        {
+            var document = await _adminDocumentRepository.GetByIdAsync(id);
+
+            if (document == null) {
+                throw new KeyNotFoundException("Document not found");
+            }
+
+            var extension = Path.GetExtension(document.StorageKey);
+
+            var contentType = extension switch
+            {
+                ".pdf" => "application/pdf",
+                ".jpg" => "image/jpeg",
+                ".jpeg" => "image/jpeg",
+                ".png" => "image/png",
+                _ => throw new InvalidOperationException(
+                    "Unsupported document file type.")
+            };
+
+            var filestream = await _fileStorageService.OpenReadAsync(document.StorageKey);
+
+            if (filestream == null)
+            {
+                throw new FileNotFoundException("Document not found");
+            }
+
+            return new AdminDocumentFileResponse
+            {
+                ContentType = contentType,
+                FileName = $"document-{document.Id}{extension}",
+                FileStream = filestream
+            };
         }
 
         public async Task<AdminOperatorDocumentResponse?> GetDocumentByIdAsync(Guid id)
